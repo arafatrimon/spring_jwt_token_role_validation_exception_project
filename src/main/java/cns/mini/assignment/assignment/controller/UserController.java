@@ -75,15 +75,12 @@ public class UserController {
     }
 
 
-    @PostMapping({"/registerNewUser"})
+    @PostMapping("/registerNewUser")
     public ResponseEntity<User> registerNewUser(@Valid @RequestBody User user) {
-        //public User registerNewUser(@RequestBody User user) {
-        // return userService.registerNewUser(user);
-
         try {
-            // User _user = userRepository.save(user);
+
             User _user = userService.registerNewUser(user);
-            ;
+
             return new ResponseEntity<>(_user, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e);
